@@ -1,0 +1,26 @@
+<template class="tmpl__experian-logo">
+	<style>
+		.experian-logo {height: auto; width:250px;}
+	</style>
+	<img alt="" class="experian-logo" src="experian-logo.svg" />
+</template>
+
+<script>
+const tmpl = document.querySelector('.tmpl__experian-logo');
+
+// Create prototype for new element that extends HTMLElement
+const ExperianLogoProto = Object.create(HTMLElement.prototype);
+
+// Set up Shadow DOM and clone template
+ExperianLogoProto.createdCallback = function() {
+	const root = this.createShadowRoot();
+	root.appendChild(document.importNode(tmpl.content, true));
+};
+
+// Register new element
+const ExperianLogo = document.registerElement('experian-logo', {
+	prototype: ExperianLogoProto
+});
+</script>
+
+<experian-logo></experian-logo>
