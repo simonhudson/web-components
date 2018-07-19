@@ -1,20 +1,20 @@
-<template class="tmpl__experian-logo">
+<template class="tmpl__expn-logo">
 	<style>
-		.experian-logo {height: auto; width:250px;}
+		.expn-logo {height: auto; width:250px;}
 	</style>
-	<img alt="Experian" class="experian-logo" src="experian-logo.svg" />
+	<img alt="Experian" class="expn-logo" src="experian-logo.svg" />
 </template>
 
 <script>
-const tmpl = document.querySelector('.tmpl__experian-logo');
+const tmpl = document.querySelector('.tmpl__expn-logo');
 const ExperianLogoProto = Object.create(HTMLElement.prototype);
 ExperianLogoProto.createdCallback = function() {
 	const root = this.createShadowRoot();
 	root.appendChild(document.importNode(tmpl.content, true));
 };
-const ExperianLogo = document.registerElement('experian-logo', {
+const ExperianLogo = document.registerElement('expn-logo', {
 	prototype: ExperianLogoProto
 });
 </script>
 
-<experian-logo></experian-logo>
+<expn-logo></expn-logo>

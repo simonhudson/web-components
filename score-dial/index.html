@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="" rel="stylesheet" />
+		<style>
+		span { color: blue; }
+		</style>
+	</head>
+	<body>
+
+	<span>This is a span in the page. It should not be the same colour as the spans in the component</span>
+
+	<expn-score-dial value="354" band="Good"></expn-score-dial>
+	<button class="js-score-update" data-operation="increase">Increase</button>
+	<button class="js-score-update" data-operation="decrease">Decrease</button>
+	
+	<script src="js/index.js"></script>
+	
+	<script>
+		const updateValue = trigger => {
+			const element = document.querySelector('expn-score-dial');
+			const operation = trigger.dataset.operation;
+
+			const newValue = operation === 'increase'
+				? parseInt(element.getAttribute('value'), 10) + 1
+				: parseInt(element.getAttribute('value'), 10) - 1;
+				
+			element.setAttribute('value', newValue);
+		};
+		
+		Array.from(document.querySelectorAll('.js-score-update')).forEach(trigger => {
+			trigger.addEventListener('click', e => {
+				e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+				updateValue(trigger);
+			})
+		});
+
+	</script>
+
+	</body>
+</html>
