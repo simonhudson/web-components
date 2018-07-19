@@ -1,6 +1,6 @@
 'use strict';
 
-var icon, value, band;
+let icon, value, band;
 const namespace = 'expn-score-dial__';
 class ExpnScoreDial extends HTMLElement {
 	
@@ -13,10 +13,10 @@ class ExpnScoreDial extends HTMLElement {
 	
 	constructor() {
 		super();
-		var shadow = this.attachShadow({mode: 'open'});
+		const shadow = this.attachShadow({mode: 'open'});
 		
-		var namespace = 'expn-score-dial__';
-		var wrapper = document.createElement('div');
+		const namespace = 'expn-score-dial__';
+		const wrapper = document.createElement('div');
 		wrapper.classList.add(`${namespace}wrapper`);
 		
 		icon = document.createElement('span');
@@ -28,7 +28,7 @@ class ExpnScoreDial extends HTMLElement {
 		
 		this.setValues();
 		
-		var style = document.createElement('style');
+		const style = document.createElement('style');
 		style.textContent =
 		`
 			span { color: red; display: block; }
