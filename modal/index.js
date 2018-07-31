@@ -1,14 +1,16 @@
 'use strict';
 
+let overlay, content, closeBtn;
+const openClass = 'is-open';
+
 class ExpnModal extends HTMLElement {
 	
 	static get observedAttributes() { return ['state']; }
 	
 	setState() {
-		const isOpen = this.getAttribute('state') === 'open';
-		console.log('--------------------');
-		console.log(isOpen);
-		console.log('--------------------');
+		const isOpen = overlay.classList.contains(openClass);
+		const method = !isOpen ? 'add': 'remove';
+		overlay.classList[method](openClass)
 	}
 	
 	constructor() {
@@ -31,7 +33,7 @@ class ExpnModal extends HTMLElement {
 				width: 100vw;
 				z-index: 1;
 			}
-			${namespace}[state="open"] .${namespace}__overlay {
+			.${namespace}__overlay.${openClass} {
 				display: flex;
 			}
 			.${namespace}__content {
@@ -51,16 +53,14 @@ class ExpnModal extends HTMLElement {
 			}
 		`;
 		shadow.appendChild(style);
-		
-		this.setAttribute('state', 'close');
-		
-		const overlay = document.createElement('div');
+				
+		overlay = document.createElement('div');
 		overlay.classList.add(`${namespace}__overlay`);
 		
-		const content = document.createElement('div');
+		content = document.createElement('div');
 		content.classList.add(`${namespace}__content`);
 		
-		const closeBtn = document.createElement('button');
+		closeBtn = document.createElement('button');
 		closeBtn.classList.add(`${namespace}__close`);
 		closeBtn.classList.add('js-modal-control');
 		closeBtn.setAttribute('data-operation', 'close');

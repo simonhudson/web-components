@@ -44,13 +44,18 @@
 			})
 		});
 		
+		const modal = document.querySelector('expn-modal');
 		Array.from(document.querySelectorAll('.js-modal-control')).forEach(trigger => {
 			trigger.addEventListener('click', e => {
 				e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-				const modal = document.querySelector('expn-modal');
 				const state = trigger.dataset.operation;
 				modal.setAttribute('state', state);
 			});
+		});
+		
+		document.addEventListener('keyup', e => {
+			const ESCAPE_KEY = 27;
+			if (e.keyCode === ESCAPE_KEY) modal.setAttribute('state', 'close');
 		});
 
 	</script>
