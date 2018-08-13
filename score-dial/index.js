@@ -17,7 +17,7 @@ class ExpnScoreDial extends HTMLElement {
 		
 		const shadow = this.attachShadow({mode: 'open'});
 		const wrapper = document.createElement('div');
-		wrapper.classList.add(`${namespace}wrapper`);
+		wrapper.classList.add(`${namespace}__wrapper`);
 		
 		icon = document.createElement('span');
 		icon.classList.add(`${namespace}__icon`);

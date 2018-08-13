@@ -12,6 +12,9 @@
 		</style>
 	</head>
 	<body>
+	
+	<expn-logo></expn-logo>
+	<expn-logo data-is-homepage-link></expn-logo>
 
 	<span>This is a span in the page. It should not be the same colour as the spans in the component</span>
 	<expn-score-dial value="354" band="Good"></expn-score-dial>
@@ -20,10 +23,10 @@
 	
 	<expn-modal></expn-modal>
 	<button class="js-modal-control" data-operation="open" type="button">Open modal</button>
-	<button class="js-modal-control" data-operation="close" type="button">Close modal</button>
 	
 	<script src="score-dial/index.js"></script>
 	<script src="modal/index.js"></script>
+	<script src="logo/index.js"></script>
 	
 	<script>
 		const updateValue = trigger => {
