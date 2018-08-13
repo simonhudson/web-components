@@ -15,7 +15,7 @@ class ExpnLogo extends HTMLElement {
 		img = document.createElement('img');
 		const attributes = {
 			alt: 'Experian',
-			src: `${document.location.pathname}/logo/experian-logo.svg`
+			src: `experian-logo.svg`
 		};
 		for (let key in attributes) img.setAttribute(key, attributes[key]);
 		
