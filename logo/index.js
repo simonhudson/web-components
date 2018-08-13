@@ -3,9 +3,7 @@
 let img;
 
 class ExpnLogo extends HTMLElement {
-	
-	static get observedAttributes() { return ['data-is-link']; }
-	
+		
 	constructor() {
 		super();
 		const namespace = 'expn-logo';
