@@ -1,5 +1,7 @@
 'use strict';
 
+// import { styles } from './styles';
+
 let img;
 
 class ExpnLogo extends HTMLElement {
@@ -15,17 +17,13 @@ class ExpnLogo extends HTMLElement {
 		img = document.createElement('img');
 		const attributes = {
 			alt: 'Experian',
-			src: `experian-logo.svg`
+			src: `./experian-logo.svg`
 		};
 		for (let key in attributes) img.setAttribute(key, attributes[key]);
 		
 		
 		const style = document.createElement('style');
-		style.textContent =
-		`
-			.${namespace}__wrapper { height: auto; width: 200px; }
-			.${namespace}__img { height: auto; width: 100%; }
-		`;
+		// style.textContent = styles;
 		
 		shadow.appendChild(wrapper);
 		shadow.appendChild(style);
@@ -33,19 +31,18 @@ class ExpnLogo extends HTMLElement {
 
 	}
 	
-	setHomePageLink() {
-		const dataAttr = 'data-is-homepage-link';
-		const isHomePageLink = this.hasAttribute(dataAttr) && this.getAttribute(dataAttr) != 'false';
-		if (!isHomePageLink) return;
+	setLink() {
+		const href = this.getAttribute('href');
+		if (!href) return;
 		const parent = img.parentNode;
 		const link = document.createElement('a');
-		link.setAttribute('href', './');
+		link.setAttribute('href', href);
 		parent.replaceChild(link, img);
 		link.appendChild(img);
 	}
 	
 	connectedCallback() {
-		this.setHomePageLink();
+		this.setLink();
 	}
 
 }
