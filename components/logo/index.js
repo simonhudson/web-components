@@ -17,13 +17,19 @@ class ExpnLogo extends HTMLElement {
 		img = document.createElement('img');
 		const attributes = {
 			alt: 'Experian',
-			src: `./experian-logo.svg`
+			class: `${namespace}__img`,
+			src: `${document.location.pathname}/components/logo/experian-logo.svg`
 		};
 		for (let key in attributes) img.setAttribute(key, attributes[key]);
 		
 		
 		const style = document.createElement('style');
-		// style.textContent = styles;
+		style.textContent = 
+			`
+				.${namespace}__wrapper { height: auto; width: 200px; }
+				.${namespace}__img { height: auto; width: 100%; }
+			`
+		;
 		
 		shadow.appendChild(wrapper);
 		shadow.appendChild(style);
